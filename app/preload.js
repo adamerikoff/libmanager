@@ -4,6 +4,8 @@ const fs = require('fs');
 
 contextBridge.exposeInMainWorld("api", {
   getDataAPI: (args) => ipcRenderer.invoke("getData", args),
+  exitAPI: (args) => ipcRenderer.invoke("exit", args),
+  deleteAPI: (id) => ipcRenderer.invoke("delete", id),
 });
 
 window.addEventListener('DOMContentLoaded', () => {

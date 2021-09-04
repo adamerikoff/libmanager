@@ -1,18 +1,28 @@
 var BOOKS         = [];
 var SELECTED_BOOK = null;
 
-window.onload = window.api.getDataAPI().then( data => {
-  updateBookList(data);
-  BOOKS = data;
-});
+window.onload = () => {
+  document.getElementById("exit").addEventListener("click", () => {
+    window.api.exitAPI();
+  });
+  document.getElementById("delete").addEventListener("click", () => {
+    window.api.deleteAPI(SELECTED_BOOK);
+    updateBookList();
+  });
+  updateBookList()
+};
 
 
 
-function updateBookList(books) {
-  const book_list = document.getElementById("book_list");
-  for (let i = 0; i < books.length; i++) {
-    book_list.appendChild(createListItem(books[i]));
-  }
+function updateBookList() {
+  window.api.getDataAPI().then( data => {
+    const book_list = document.getElementById("book_list");
+    book_list.innerHTML = "";
+    for (let i = 0; i < data.length; i++) {
+      book_list.appendChild(createListItem(data[i]));
+    }
+    BOOKS = data;
+  });
 }
 
 function createListItem(book) {
@@ -44,8 +54,10 @@ function createListItem(book) {
 }
 
 function previewBook(id, selected) {
-  if (selected != null) {
-    document.getElementById(selected).classList.remove("lib-manager-list-group-item-selected");
+  if ( selected!= null){
+    if (document.getElementById(selected) != null){
+      document.getElementById(selected).classList.remove("lib-manager-list-group-item-selected");
+    }
   }
   document.getElementById(id).classList.add("lib-manager-list-group-item-selected");
 
