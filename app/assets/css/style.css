@@ -18,5 +18,8 @@
   width: 300px;
 }
 .libmanager-form {
-  margin: 0 auto 0 auto;
+  margin: 20px auto 0 auto;
+}
+input {
+  cursor: pointer;
 }

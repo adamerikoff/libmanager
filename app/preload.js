@@ -6,6 +6,7 @@ contextBridge.exposeInMainWorld("api", {
   saveDataAPI: (data) => ipcRenderer.invoke("saveData", data),
   exitAPI: (args) => ipcRenderer.invoke("exit", args),
   deleteAPI: (id) => ipcRenderer.invoke("delete", id),
+  addBookWindow: (id) => ipcRenderer.invoke("addWindow", id),
 });
 
 window.addEventListener('DOMContentLoaded', () => {

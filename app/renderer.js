@@ -10,6 +10,7 @@ window.onload = () => {
     updateBookList();
   });
   document.getElementById("add").addEventListener("click", () => {
+    window.api.addBookWindow();
   })
   updateBookList()
 };
@@ -74,6 +75,7 @@ function previewBook(id, selected) {
   document.getElementById("ISBN").innerHTML        = "ISBN: ".concat(book.ISBN);
   document.getElementById("author").innerHTML      = book.author;
   document.getElementById("description").innerHTML = book.description;
+  updateBookList();
 }
 
 function getBook(books, id) {
