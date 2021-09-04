@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LibManager</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="./assets/css/photon.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    
+  </head>
+  <body>
+    <div class="window">
+      <!-- .toolbar-header sits at the top of your app -->
+      <header class="toolbar toolbar-header">
+        <h1 class="title">LibManager</h1>
+      
+        <div class="toolbar-actions">       
+          <button class="btn btn-default pull-right" id="exit">
+            <span class="icon icon-cancel"></span>
+          </button>
+        </div>
+      </header>
+      <!-- Your app's content goes inside .window-content -->
+      <div class="window-content">
+        <form class="libmanager-form">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" placeholder="...">
+          </div>
+          <div class="form-group">
+            <label>Author</label>
+            <input type="text" class="form-control" placeholder="...">
+          </div>
+          <div class="form-group">
+            <label>Publishing Date</label>
+            <input type="text" class="form-control" placeholder="...">
+          </div>
+          <div class="form-group">
+            <label>ISBN</label>
+            <input type="text" class="form-control" placeholder="...">
+          </div>
+          <div class="form-group">
+            <label>Description</label>
+            <textarea class="form-control" rows="7"></textarea>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-form btn-default" id="cancel">Cancel</button>
+            <button type="submit" class="btn btn-form btn-primary" id="finish">OK</button>
+          </div>
+        </form>
+      </div>
+      <footer class="toolbar toolbar-footer">
+        <h1 class="title">powered by electron+proton</h1>
+      </footer>
+    </div>
+  </body>
+  <!-- Javascript -->
+  <script src="./renderer2.js" charset="utf-8"></script>
+</html>

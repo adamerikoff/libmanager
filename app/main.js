@@ -6,7 +6,6 @@ const { app, BrowserWindow, ipcMain } = require('electron');
 
 var win = null;
 
-
 function createWindow () {
   win = new BrowserWindow({
     width: 900,
@@ -23,29 +22,39 @@ function createWindow () {
     }
   })
 
-  win.loadFile(path.join(__dirname, 'index.html'))
+  win.loadFile(path.join(__dirname, 'index.html'));
 }
 
 app.whenReady().then(() => {
-  createWindow()
+  createWindow();
 })
 
 
 app.on('window-all-closed', function () {
-  if (process.platform !== 'darwin') app.quit()
-})
+  if (process.platform !== 'darwin') app.quit();
+});
 
 ipcMain.handle("getData", async (event, args) => {
   let data = JSON.parse(fs.readFileSync(path.join(__dirname, 'data.json'),'utf8'));
   return data;
 });
+
+ipcMain.handle("saveData", async (event, data) => {
+  saveData(data);
+});
+
 ipcMain.handle("exit", async (event, args) => {
   app.quit();
 });
+
 ipcMain.handle("delete", async (event, id) => {
   let books = JSON.parse(fs.readFileSync(path.join(__dirname, 'data.json'),'utf8'));
   for (let i = 0; i < books.length; i++) {
     if (books[i].id == id) books.splice(i, 1);    
   }
-  fs.writeFileSync(path.join(__dirname, 'data.json'), JSON.stringify(books));
+  saveData(books);
 });
+
+function saveData(data) {
+  fs.writeFileSync(path.join(__dirname, 'data.json'), JSON.stringify(data));
+}

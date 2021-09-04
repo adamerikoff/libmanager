@@ -1,22 +1,13 @@
-const { contextBridge, ipcRenderer } = require('electron')
-const path =  require('path');
-const fs = require('fs');
+const { contextBridge, ipcRenderer, BrowserWindow } = require('electron');
+
 
 contextBridge.exposeInMainWorld("api", {
   getDataAPI: (args) => ipcRenderer.invoke("getData", args),
+  saveDataAPI: (data) => ipcRenderer.invoke("saveData", data),
   exitAPI: (args) => ipcRenderer.invoke("exit", args),
   deleteAPI: (id) => ipcRenderer.invoke("delete", id),
 });
 
 window.addEventListener('DOMContentLoaded', () => {
 
-})
-
-
-function saveData(books) {
-  let data = JSON.stringify(books);
-  fs.writeFile(path.join(__dirname, 'data2.json'), data, (err) => {
-    if (err) throw err;
-    alert('saved')
 });
-}

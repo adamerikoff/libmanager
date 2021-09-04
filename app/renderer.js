@@ -9,6 +9,8 @@ window.onload = () => {
     window.api.deleteAPI(SELECTED_BOOK);
     updateBookList();
   });
+  document.getElementById("add").addEventListener("click", () => {
+  })
   updateBookList()
 };
 
