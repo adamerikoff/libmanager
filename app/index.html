@@ -7,8 +7,7 @@
     <link rel="stylesheet" href="./assets/css/photon.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
 
-    <!-- Javascript -->
-    <script src="./renderer.js" charset="utf-8"></script>
+    
   </head>
   <body>
     <div class="window">
@@ -35,73 +34,22 @@
       <div class="window-content">
         <div class="pane-group">
           <div class="pane-sm sidebar libmanager-sidebar">
-            <ul class="list-group">
+            <ul class="list-group" id="book_list">
               <li class="list-group-header">
                 <input class="form-control" type="text" placeholder="Search...">
-              </li>
-              <li class="list-group-item lib-manager-list-group-item-selected">
-                <div class="media-body">
-                  <strong>List item title</strong>
-                  <p>Lorem ipsum dolor sit amet.</p>
-                </div>
-              </li>
-              <li class="list-group-item">
-                <div class="media-body">
-                  <strong>List item title</strong>
-                  <p>Lorem ipsum dolor sit amet.</p>
-                </div>
-              </li>
-              <li class="list-group-item">
-                <div class="media-body">
-                  <strong>List item title</strong>
-                  <p>Lorem ipsum dolor sit amet.</p>
-                </div>
-              </li>
-              <li class="list-group-item">
-                <div class="media-body">
-                  <strong>List item title</strong>
-                  <p>Lorem ipsum dolor sit amet.</p>
-                </div>
-              </li>
-              <li class="list-group-item">
-                <div class="media-body">
-                  <strong>List item title</strong>
-                  <p>Lorem ipsum dolor sit amet.</p>
-                </div>
-              </li>
-              <li class="list-group-item">
-                <div class="media-body">
-                  <strong>List item title</strong>
-                  <p>Lorem ipsum dolor sit amet.</p>
-                </div>
-              </li><li class="list-group-item">
-                <div class="media-body">
-                  <strong>List item title</strong>
-                  <p>Lorem ipsum dolor sit amet.</p>
-                </div>
-              </li>
-              <li class="list-group-item">
-                <div class="media-body">
-                  <strong>List item title</strong>
-                  <p>Lorem ipsum dolor sit amet.</p>
-                </div>
-              </li><li class="list-group-item">
-                <div class="media-body">
-                  <strong>List item title</strong>
-                  <p>Lorem ipsum dolor sit amet.</p>
-                </div>
-              </li>
-              <li class="list-group-item">
-                <div class="media-body">
-                  <strong>List item title</strong>
-                  <p>Lorem ipsum dolor sit amet.</p>
-                </div>
               </li>
               
             </ul>
           </div>
-          <div class="pane">
-
+          <div class="pane" id="preview">
+            <div class="preview">
+              <img src="" alt="" id="cover" class="cover">
+              <h1 id="name"></h1>
+              <h2 id="author"></h2>
+              <h4 id="date"></h4>
+              <p id="ISBN"></p>
+              <p id="description"></p>
+            </div>
           </div>
         </div>
         
@@ -111,4 +59,6 @@
       </footer>
     </div>
   </body>
+  <!-- Javascript -->
+  <script src="./renderer.js" charset="utf-8"></script>
 </html>
