@@ -1,8 +1,6 @@
 
 ## Library Management System
 GUI App for Library Management built with [Photon](https://github.com/connors/photon) and [Electron](https://github.com/electron/electron).
-Honestly speaking, i had a lot of gun coding this app! >_<
-Electron is such a great tool.
 
 ### Description
 This app allows users to add/delete books.
